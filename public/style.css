@@ -1,0 +1,11 @@
+* {
+  font-family: sans-serif;
+}
+
+#flash {
+  background-color: red;
+}
+
+form.inline {
+  display: inline;
+}
