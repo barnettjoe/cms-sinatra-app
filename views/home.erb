@@ -1,9 +1,36 @@
+<h3>Documents</h3>
+
 <ul>
-  <% @files.each do |file| %>
+  <% doc_files.each do |file| %>
     <li>
-      <a href="/<%= file %>"><%= file %></a>
-      <a href="/<%= file %>/edit">Edit</a>
-      <form class="inline" action="/<%= file %>/delete" method="post">
+      <a href="/docs/<%= file %>"><%= file %></a>
+      <a href="/docs/<%= file %>/edit">Edit</a>
+      <form class="inline" action="/docs/<%= file %>/delete" method="post">
+        <button>
+          Delete
+        </button>
+      </form>
+      <form class="inline" action="/docs/<%= file %>/duplicate" method="get">
+        <button>
+          Duplicate
+        </button>
+      </form>
+      <a href="/docs/<%= file %>/versions">Versions</a>
+      <br />
+      <br />
+    </li>
+  <% end %>
+</ul>
+
+<a href="./new">New Document</a>
+
+<h3>Images</h3>
+
+<ul>
+  <% @img_files.each do |file| %>
+    <li>
+      <a href="/images/<%= file %>"><%= file %></a>
+      <form class="inline" action="/images/<%= file %>/delete" method="post">
         <button>
           Delete
         </button>
@@ -14,7 +41,8 @@
   <% end %>
 </ul>
 
-<a href="./new">New Document</a>
+
+<a href="./upload_image">Upload Image</a>
 
 
 <% if signed_in? %>
@@ -27,5 +55,8 @@
 <% else %>
   <form action="/users/signin" method="get">
     <button>Sign In</button>
+  </form>
+  <form action="/users/signup" method="get">
+    <button>Sign Up</button>
   </form>
 <% end %>

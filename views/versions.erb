@@ -1,0 +1,7 @@
+<ul>
+  <% @versions.each do |version| %>
+    <li>
+      <a href="/<%= @file %>/version/<%= version %>"><%= version %></a>
+    </li>
+  <% end %>
+</ul>
